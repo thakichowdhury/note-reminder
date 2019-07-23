@@ -1,4 +1,4 @@
-const { MessagingResponse }  = require('twilio').twiml;
+const { MessagingResponse } = require('twilio').twiml;
 
 const twilioReceiveMessage = async (message) => {
   const twiml = new MessagingResponse();
