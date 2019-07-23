@@ -16,8 +16,8 @@ const twilioCreateMessage = async ({
     body,
     from: TWILIO_PHONE_NUMBER,
   })
-    .then(message => console.log(message.sid))
-    .catch();
+    .then(message => console.log(`Message successfully sent: message_sid: ${message.sid}`))
+    .catch(error => console.error(`Message was not sent: error: ${error}`));
 };
 
 module.exports = twilioCreateMessage;
