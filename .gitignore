@@ -1,0 +1,8 @@
+# Development Generated
+node_modules
+
+# Environment Generated
+.DS_Store
+
+# Sensitive Material
+secrets
