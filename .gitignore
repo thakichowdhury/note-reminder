@@ -3,6 +3,7 @@ node_modules
 
 # Environment Generated
 .DS_Store
+*.swp
 
 # Sensitive Material
 secrets
