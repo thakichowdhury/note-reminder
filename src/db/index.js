@@ -7,7 +7,7 @@ const {
   REMIND_DB_AUTH: password,
 } = require('../../secrets/local.js');
 
-const host = os.hostname();
+const host = 'localhost' || os.hostname();
 const port = process.env.PORT || 5432;
 
 const connection = {
@@ -18,4 +18,10 @@ const connection = {
   password,
 };
 
-module.exports = new Pool(connection);
+const pool = new Pool(connection);
+
+pool.on('connect', () => {
+  console.log(`db ${database} connected at ${host}:${port}`);
+});
+
+module.exports = pool;
