@@ -8,7 +8,12 @@ require('./cron');
 const PORT = process.env.PORT || 3000;
 
 // TODO: break endpoints into a separate routes file
-app.post('/sms', ({ body }) => insertNewMessage(body.Body));
+app.post('/sms', ({
+  body: {
+    From: phoneString,
+    Body: message,
+  },
+}) => insertNewMessage({ phoneString, message }));
 
 app.listen(
   PORT,
