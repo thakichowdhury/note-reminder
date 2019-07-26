@@ -9,11 +9,12 @@ const db = require('../db');
 // TODO: break endpoints into a separate routes file
 app.post('/sms', async (request, response) => {
   const message = request.body.Body;
+  const createdAt = moment().format('YYYY-MM-DD hh:MM:SS A');
 
-  const createdAt = moment().format('YYYY-MM-DD HH:MM:SS');
-  const query = `INSERT into notes (message, created_at, last_called) VALUES ('${message}', TO_TIMESTAMP('${createdAt}', 'YYYY-MM-DD HH:MI:SS'), TO_TIMESTAMP('${createdAt}', 'YYYY-MM-DD HH:MI:SS'));`;
+  const query = `INSERT into notes (message, created_at) VALUES ($1, $2);`;
+  const values = [message, createdAt];
 
-  db.query(query)
+  db.query(query, values)
     .then(res => console.log(res))
     .catch(err => console.error(err));
 });
