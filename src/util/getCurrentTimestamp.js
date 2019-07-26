@@ -1,3 +1,3 @@
 const moment = require('moment');
 
-module.exports = () => moment().format('YYYY-MM-DD hh:mm:ss A');
+module.exports = () => moment().format('YYYY-MM-DD HH:mm:ss A');
