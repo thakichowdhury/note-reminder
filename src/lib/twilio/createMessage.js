@@ -9,14 +9,14 @@ const {
 
 const twilioCreateMessage = async ({
   to,
-  body,
+  message,
 }) => {
   twilioClient.messages.create({
     to: !isProd ? TWILIO_VERIFIED_NUMBER : to,
-    body,
+    body: message,
     from: TWILIO_PHONE_NUMBER,
   })
-    .then(message => console.log(`Message successfully sent: message_sid: ${message.sid}`))
+    .then(sentMessage => console.log(`Message successfully sent: message_sid: ${sentMessage.sid}`))
     .catch(error => console.error(`Message was not sent: error: ${error}`));
 };
 
