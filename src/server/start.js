@@ -8,11 +8,18 @@ const db = require('../db');
 
 // TODO: break endpoints into a separate routes file
 app.post('/sms', (request, response) => {
-  const message = request.body.Body;
-  const createdAt = moment().format('YYYY-MM-DD hh:MM:SS A');
+  const {
+    body: {
+      From,
+      Body: message,
+    },
+  } = request;
 
-  const query = `INSERT into notes (message, created_at) VALUES ($1, $2);`;
-  const values = [message, createdAt];
+  const createdAt = moment().format('YYYY-MM-DD hh:MM:SS A');
+  const phoneNumber = parseInt(From.slice(2), 10);
+
+  const query = 'INSERT into notes (phone_number, message, created_at) VALUES ($1, $2, $3);';
+  const values = [phoneNumber, message, createdAt];
 
   db.query(query, values)
     .then(res => console.log(res))
