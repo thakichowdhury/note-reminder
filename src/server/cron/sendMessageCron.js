@@ -4,6 +4,7 @@ const db = require('../../db');
 const createMessage = require('../../lib/twilio/createMessage');
 const getRandomInt = require('../../util/getRandomInt');
 
+// run cron-job every 10 seconds
 const sendMessageCron = cron.schedule('*/10 * * * * *', async () => {
   const { rows: [{ count }] } = await db.query('SELECT COUNT(*) FROM notes;');
 
