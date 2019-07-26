@@ -1,3 +1,4 @@
-const sendMessageCron = require('./sendMessageCron');
+// const sendMessageCron = require('./sendMessageCron');
+require('./sendMessageCron');
 
-exports = { sendMessageCron };
+// exports = { sendMessageCron };

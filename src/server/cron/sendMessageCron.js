@@ -18,4 +18,4 @@ const sendMessageCron = cron.schedule('*/10 * * * * *', async () => {
   }
 });
 
-exports = sendMessageCron;
+sendMessageCron.start();
