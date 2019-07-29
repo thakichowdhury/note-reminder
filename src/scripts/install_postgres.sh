@@ -8,7 +8,7 @@ sudo yum -y update
 
 # Intall PostgreSQL
 sudo yum -y install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
-sudo postgresql-setup initdb
+sudo service postgresql initdb
 
 # Use MD5 Authentication
 sudo sed -i.bak -e 's/ident$/md5/' -e 's/peer$/md5/' /var/lib/pgsql9/data/pg_hba.conf
