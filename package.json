@@ -7,7 +7,7 @@
     "start-server": "node ./src/server/start.js",
     "connect-to-remote-server": "sh ./src/scripts/connect_to_remote_server.sh",
     "server-forwarding": "ngrok http 3000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "load-schema": "psql -f src/db/schema.sql postgres"
   },
   "dependencies": {
     "express": "^4.17.1",
