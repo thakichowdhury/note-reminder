@@ -1,3 +1,6 @@
+# Updating updates on instance
+sudo yum -y update
+
 echo "Getting root priveleges"
 sudo -i
 
