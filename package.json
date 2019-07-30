@@ -1,5 +1,5 @@
 {
-  "name": "quote-remind",
+  "name": "note-reminder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,13 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thakichowdhury/quote-remind.git"
+    "url": "git+https://github.com/thakichowdhury/note-reminder.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thakichowdhury/quote-remind/issues"
+    "url": "https://github.com/thakichowdhury/note-reminder/issues"
   },
-  "homepage": "https://github.com/thakichowdhury/quote-remind#readme"
+  "homepage": "https://github.com/thakichowdhury/note-reminder#readme"
 }
