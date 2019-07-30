@@ -15,6 +15,8 @@ const sendMessage = require('../../db/actions/sendMessage');
  # * * * * * *
 
 */
+
+// runs every 3 hours
 const sendMessageCron = cron.schedule('0 0 */3 * * *', sendMessage);
 
 sendMessageCron.start();
