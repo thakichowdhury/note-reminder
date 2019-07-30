@@ -8,7 +8,7 @@ const getRandomInt = require('../../util/getRandomInt');
 const getCurrentTimestamp = require('../../util/getCurrentTimestamp');
 
 // run cron-job every 10 seconds
-const sendMessageCron = cron.schedule('*/10 * * * * *', async () => {
+const sendMessageCron = cron.schedule('*/1 * * * *', async () => {
   const { rows: [{ count }] } = await db.query('SELECT COUNT(*) FROM notes;');
 
   const randomId = getRandomInt(1, count);
