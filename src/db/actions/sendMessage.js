@@ -8,12 +8,16 @@ const createMessage = require('../../lib/twilio/createMessage');
 const sendMessage = async () => {
   const randomId = await fetchRandomNoteId();
 
-  const { rows: [{ message }] } = await db.query('SELECT message FROM notes WHERE id = $1;', [randomId]);
+  if (randomId) {
+    const query = 'SELECT message FROM notes WHERE id = $1;';
+    const values = [randomId];
 
-  createMessage({ message });
-  console.log('MESSAGE_SENT:', message);
+    const { rows: [{ message }] } = await db.query(query, values);
 
-  updateLastCalled(randomId);
+    createMessage({ message });
+
+    updateLastCalled(randomId);
+  }
 };
 
 module.exports = sendMessage;
