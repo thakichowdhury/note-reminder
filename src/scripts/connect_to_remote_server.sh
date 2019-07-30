@@ -1,6 +1,6 @@
 #!/bin/bash
 
-instance_address="ec2-34-207-167-220.compute-1.amazonaws.com"
+instance_address="ec2-3-89-10-242.compute-1.amazonaws.com"
 user="ec2-user"
 
 echo "*****************************************\n"
