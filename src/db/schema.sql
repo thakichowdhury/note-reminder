@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS quote_remind;
+DROP DATABASE IF EXISTS note_reminder;
 
-CREATE DATABASE quote_remind;
+CREATE DATABASE note_reminder;
 
-\c quote_remind;
+\c note_reminder;
 
 CREATE TABLE notes (
   id SERIAL PRIMARY KEY,
