@@ -22,7 +22,7 @@ const connection = {
 const pool = new Pool(connection);
 
 pool.on('connect', () => {
-  console.log(`db ${database} connected at ${host}:${port}`);
+  console.log(`${user}@${database} db connected at ${host}:${port}`);
 });
 
 module.exports = pool;
