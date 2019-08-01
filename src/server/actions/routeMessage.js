@@ -22,7 +22,7 @@ const routeMessage = async ({
     });
   } else {
     const insertResponse = await insertNewMessage({ phoneNumber, message });
-    responseMessage = insertResponse.code === 200 ? 'Message was successfully saved!' : 'There was an error saving your message.';
+    responseMessage = insertResponse.rowCount ? 'Message was successfully saved!' : 'There was an error saving your message.';
   }
 
   sendMessage({ to: phoneNumber, message: responseMessage });
