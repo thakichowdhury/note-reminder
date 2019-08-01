@@ -1,6 +1,6 @@
 const app = require('./index.js');
 
-const insertNewMessage = require('../db/actions/insertNewMessage');
+const routeMessage = require('./actions/routeMessage');
 
 // start cron-jobs
 require('./cron');
@@ -8,12 +8,15 @@ require('./cron');
 const PORT = process.env.PORT || 3000;
 
 // TODO: break endpoints into a separate routes file
-app.post('/sms', ({
-  body: {
-    From: phoneString,
-    Body: message,
-  },
-}) => insertNewMessage({ phoneString, message }));
+app.post(
+  '/sms',
+  async ({
+    body: {
+      From: phoneString,
+      Body: message,
+    },
+  }) => routeMessage({ phoneString, message }),
+);
 
 app.listen(
   PORT,
