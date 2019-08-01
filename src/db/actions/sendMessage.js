@@ -3,7 +3,7 @@ const db = require('../../db');
 const fetchRandomNoteId = require('./fetchRandomNoteId');
 const updateLastCalled = require('./updateLastCalled');
 
-const createMessage = require('../../lib/twilio/twilioSendMessage');
+const twilioSendMessage = require('../../lib/twilio/twilioSendMessage');
 
 const sendMessage = async () => {
   const randomId = await fetchRandomNoteId();
@@ -14,8 +14,10 @@ const sendMessage = async () => {
 
     const { rows: [{ phone_number: phoneNumber, message }] } = await db.query(query, values);
 
-    createMessage({ to: phoneNumber, message });
+    // send sms message to user phone number
+    twilioSendMessage({ to: phoneNumber, message });
 
+    // update the last_called field for the notes message
     updateLastCalled(randomId);
   }
 };
