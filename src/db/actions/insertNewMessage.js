@@ -17,12 +17,18 @@ const insertNewMessage = async ({
     user = await createNewUser({ phoneNumber });
   }
 
-  const query = 'INSERT into notes (message, phone_number, created_at) VALUES ($1, $2, $3) RETURNING id;';
+  const query = 'INSERT into notes (message, phone_number, created_at, modified_at) VALUES ($1, $2, $3, $3) RETURNING id;';
   const values = [message, user.phone_number, createdAt];
 
   return db.query(query, values)
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
+    .then((res) => {
+      console.log(res);
+      return res;
+    })
+    .catch((err) => {
+      console.error(err);
+      return err;
+    });
 };
 
 module.exports = insertNewMessage;
