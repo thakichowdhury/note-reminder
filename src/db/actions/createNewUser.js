@@ -5,7 +5,7 @@ const getCurrentTimestamp = require('../../util/getCurrentTimestamp');
 const createNewUser = async ({ phoneNumber }) => {
   const createdAt = getCurrentTimestamp();
 
-  const query = 'INSERT INTO users (phone_number, is_active, created_at) VALUES ($1, $2, $3) RETURNING phone_number;';
+  const query = 'INSERT INTO users (phone_number, is_active, created_at, modified_at) VALUES ($1, $2, $3, $3) RETURNING phone_number;';
   const values = [phoneNumber, true, createdAt];
 
   try {
