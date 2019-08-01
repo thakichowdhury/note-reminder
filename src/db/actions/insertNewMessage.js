@@ -6,11 +6,10 @@ const fetchUser = require('./fetchUser');
 const createNewUser = require('./createNewUser');
 
 const insertNewMessage = async ({
-  phoneString,
+  phoneNumber,
   message,
 }) => {
   const createdAt = getCurrentTimestamp();
-  const phoneNumber = parseInt(phoneString.slice(2), 10);
 
   let user = await fetchUser({ phoneNumber });
 
