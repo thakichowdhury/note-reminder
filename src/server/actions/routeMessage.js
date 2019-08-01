@@ -21,8 +21,8 @@ const routeMessage = async ({
       directive: messageUpperCase,
     });
   } else {
-    await insertNewMessage({ phoneString, message });
-    responseMessage = 'Message was successfully saved!';
+    const insertResponse = await insertNewMessage({ phoneNumber, message });
+    responseMessage = insertResponse.code === 200 ? 'Message was successfully saved!' : 'There was an error saving your message.';
   }
 
   sendMessage({ to: phoneNumber, message: responseMessage });
