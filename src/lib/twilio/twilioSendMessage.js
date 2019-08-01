@@ -7,7 +7,7 @@ const {
   TWILIO_VERIFIED_NUMBER,
 } = require('../../../secrets/local.js');
 
-const twilioCreateMessage = async ({
+const twilioSendMessage = async ({
   to,
   message,
 }) => {
@@ -20,4 +20,4 @@ const twilioCreateMessage = async ({
     .catch(error => console.error(`Message was not sent: error: ${error}`));
 };
 
-module.exports = twilioCreateMessage;
+module.exports = twilioSendMessage;
