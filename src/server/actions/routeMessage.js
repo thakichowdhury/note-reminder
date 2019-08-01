@@ -1,7 +1,7 @@
 const insertNewMessage = require('../../db/actions/insertNewMessage');
 const checkAndToggleUserActiveState = require('../../db/actions/checkAndToggleUserActiveState');
 
-const sendMessage = require('../../lib/twilio/createMessage');
+const sendMessage = require('../../lib/twilio/twilioSendMessage');
 
 const routeMessage = async ({
   phoneString,
