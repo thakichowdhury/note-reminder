@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-cron": "^2.0.3",
     "pg": "^7.11.0",
     "twilio": "^3.33.1"
